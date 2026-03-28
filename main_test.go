@@ -115,7 +115,6 @@ func TestCafeSearch(t *testing.T){
 		for _, cofe := range foundCofe {
 			assert.Equal(t, true, strings.Contains(strings.ToLower(cofe), strings.ToLower(v.search)))
 			assert.Equal(t, v.wantCount, len(foundCofe))
-			break
 		}
 	}
 	
