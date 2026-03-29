@@ -79,7 +79,7 @@ func TestCafeCount(t *testing.T){
 
 		foundCofe := strings.Split(strings.TrimSpace(response.Body.String()), ",")
 		
-		assert.Equal(t, v.want, len(foundCofe))
+		assert.Len(t, foundCofe, v.want)
 	}
 }
 
@@ -113,9 +113,9 @@ func TestCafeSearch(t *testing.T){
 		foundCofe := strings.Split(strings.TrimSpace(response.Body.String()), ",")
 
 		for _, cofe := range foundCofe {
-			assert.Equal(t, true, strings.Contains(strings.ToLower(cofe), strings.ToLower(v.search)))
-			assert.Equal(t, v.wantCount, len(foundCofe))
+			assert.Contains(t, strings.ToLower(cofe), strings.ToLower(v.search))
 		}
+		assert.Len(t, foundCofe, v.wantCount)
 	}
 	
 }
